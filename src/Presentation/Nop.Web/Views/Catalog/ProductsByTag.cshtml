@@ -16,6 +16,8 @@
         var productsByTagUrl = Url.RouteUrl("ProductsByTag", new { SeName = Model.TagSeName }, webHelper.CurrentRequestProtocol).ToLowerInvariant();
         Html.AddCanonicalUrlParts(productsByTagUrl, seoSettings.QueryStringInCanonicalUrlsEnabled);
     }
+    Html.AddMetaDescriptionParts(Model.TagName);
+
 }
 <div class="page product-tag-page">
     <div class="page-title">
