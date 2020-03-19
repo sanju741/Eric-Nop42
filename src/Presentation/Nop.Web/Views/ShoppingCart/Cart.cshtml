@@ -1,0 +1,99 @@
+﻿@model ShoppingCartModel
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.ShoppingCart").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-shopping-cart-page");
+}
+@if (!Model.OnePageCheckoutEnabled)
+{
+    @await Component.InvokeAsync("CheckoutProgress", new { step = CheckoutProgressStep.Cart })
+}
+<div class="page shopping-cart-page">
+    <div class="page-title">
+        <h1>@T("ShoppingCart")</h1>
+    </div>
+    <div class="page-body">
+        @await Component.InvokeAsync("OrderSummary", new { overriddenModel = Model })
+    </div>
+</div>
+
+<style>
+    img.feedex {
+        max-width: 200px;
+        margin: -56px 0 -10px 0px;
+        ;
+    }
+
+    .bank-of-america {
+        float: left;
+        max-height: 55px;
+        padding-left: 30px;
+    }
+
+    @@media (min-width: 770px) {
+        .shopping-cart-page .cart-options {
+            width: 50%;
+            overflow: inherit;
+        }
+
+
+        .cart-options .common-buttons {
+            text-align: inherit;
+        }
+
+        .shopping-cart-page .common-buttons {
+            margin: 0;
+        }
+
+        .cart-footer {
+            border: none;
+        }
+
+            .cart-footer .cart-collaterals {
+                padding: 0 0 0 30px;
+            }
+
+            .cart-footer .totals {
+                width: 47%;
+                margin-top: -400px;
+            }
+    }
+
+    @@media (min-width: 915px) {
+        img.feedex {
+            float:right;
+            margin: -56px 0 -10px 0px;
+        }
+
+        .cart-footer .totals {
+            width: 47%;
+            margin-top: -323.3px;
+        }
+    }
+
+    @@media (min-width: 1000px) {
+        img.feedex {
+            margin: -56px 0 -10px 0px;
+        }
+
+        .cart-footer .totals {
+            width: 47%;
+            margin-top: -306.3px;
+        }
+    }
+
+    @@media (min-width: 1365px) {
+        .cart-footer .totals {
+            width: 49.5%;
+            margin-top: -326px;
+        }
+
+        img.feedex {
+            float: right;
+            margin: -56px -169px 0 0;
+        }
+    }
+</style>
