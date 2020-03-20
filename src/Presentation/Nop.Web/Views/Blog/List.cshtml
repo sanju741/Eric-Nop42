@@ -6,6 +6,7 @@
     Html.AddTitleParts(T("PageTitle.Blog").Text);
     //page class
     Html.AppendPageCssClassParts("html-blog-page");
+    Html.AddMetaDescriptionParts("Blogs");
 }
 @section left {
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.LeftSideColumnBlogBefore })

@@ -14,6 +14,7 @@
 
     const string hideCommentsBlockAttributeName = "NewsSettingsPage.HideCommentsBlock";
     var hideCommentsBlock = genericAttributeService.GetAttribute<bool>(workContext.CurrentCustomer, hideCommentsBlockAttributeName);
+
 }
 
 <form asp-controller="Setting" asp-action="News" method="post">

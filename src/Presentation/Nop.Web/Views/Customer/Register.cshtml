@@ -15,6 +15,7 @@
         var loginUrl = Url.RouteUrl("Register", new {}, webHelper.CurrentRequestProtocol).ToLowerInvariant();
         Html.AddCanonicalUrlParts(loginUrl, seoSettings.QueryStringInCanonicalUrlsEnabled);
     }
+    Html.AddMetaDescriptionParts("Register");
 }
 
 <div class="page registration-page">
