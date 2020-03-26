@@ -298,42 +298,42 @@
                                 }
                             </div>
                         }
-                        <div class="checkout-buttons">
-                            @if (string.IsNullOrEmpty(Model.MinOrderSubtotalWarning) && !Model.HideCheckoutButton)
-                            {
-                                <script asp-location="Footer">
-                                    $(document).ready(function () {
-                                        $('#checkout').on('click', function () {
-                                            //terms of service
-                                            var termOfServiceOk = true;
-                                            if ($('#termsofservice').length > 0) {
-                                                //terms of service element exists
-                                                if (!$('#termsofservice').is(':checked')) {
-                                                    $("#terms-of-service-warning-box").dialog();
-                                                    termOfServiceOk = false;
-                                                } else {
-                                                    termOfServiceOk = true;
-                                                }
-                                            }
-                                            return termOfServiceOk;
-                                        });
-                                    });
-                                </script>
-                                if (orderSettings.CheckoutDisabled)
-                                {
-                                    <div class="checkout-disabled">
-                                        @T("Checkout.Disabled")
-                                    </div>
-                                }
-                                else
-                                {
-                                    <img class="bank-of-america" src="~/images/uploaded/bankOfAmerica.PNG" />
-                                    <button type="submit" id="checkout" name="checkout" value="checkout" class="button-1 checkout-button">
-                                        @T("Checkout.Button")
-                                    </button>
-                                }
-                            }
-                        </div>
+                <div class="checkout-buttons">
+                    @if (string.IsNullOrEmpty(Model.MinOrderSubtotalWarning) && !Model.HideCheckoutButton)
+                    {
+                        <script asp-location="Footer">
+                            $(document).ready(function () {
+                                $('#checkout').on('click', function () {
+                                    //terms of service
+                                    var termOfServiceOk = true;
+                                    if ($('#termsofservice').length > 0) {
+                                        //terms of service element exists
+                                        if (!$('#termsofservice').is(':checked')) {
+                                            $("#terms-of-service-warning-box").dialog();
+                                            termOfServiceOk = false;
+                                        } else {
+                                            termOfServiceOk = true;
+                                        }
+                                    }
+                                    return termOfServiceOk;
+                                });
+                            });
+                        </script>
+                        if (orderSettings.CheckoutDisabled)
+                        {
+                            <div class="checkout-disabled">
+                                @T("Checkout.Disabled")
+                            </div>
+                        }
+                        else
+                        {
+                            <img class="payments-image" style="float:left" src="~/images/uploaded/payment.PNG" />
+                            <button type="submit" id="checkout" name="checkout" value="checkout" class="button-1 checkout-button">
+                                @T("Checkout.Button")
+                            </button>
+                        }
+                    }
+                </div>
 
                         <div class="addon-buttons">
                             @*Payment method buttons (e.g. GoogleCheckoutButton, Paypal Express)*@
@@ -343,7 +343,7 @@
                             }
                         </div>
                     }
-                    <img class="payments-image" style="width:100%" src="~/images/uploaded/payment.PNG" />
+                    <img class="bank-of-america" src="~/images/uploaded/bankOfAmerica.PNG" />
 
                 </div>
 

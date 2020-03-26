@@ -34,14 +34,14 @@
                     <td class="cart-total-right">
                         @if (Model.RequiresShipping)
                         {
-                            if (!string.IsNullOrEmpty(Model.Shipping))
+                            @*if (!string.IsNullOrEmpty(Model.Shipping))
                             {
                             <span class="value-summary">@Model.Shipping</span>
                             }
                             else
-                            {
-                            <span>@T("ShoppingCart.Totals.CalculatedDuringCheckout")</span>
-                            }
+                            {*@
+                            <span>@T("ShoppingCart.Totals.FreeGroundShipping")</span>
+                            //}
                         }
                         else
                         {
