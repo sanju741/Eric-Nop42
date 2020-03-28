@@ -1286,6 +1286,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             seoSettings.TwitterMetaTags = model.SeoSettings.TwitterMetaTags;
             seoSettings.OpenGraphMetaTags = model.SeoSettings.OpenGraphMetaTags;
             seoSettings.CustomHeadTags = model.SeoSettings.CustomHeadTags;
+            seoSettings.HomeSchema = model.SeoSettings.HomeSchema;
 
             //we do not clear cache after each setting update.
             //this behavior can increase performance because cached settings will not be cleared 
@@ -1302,6 +1303,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             _settingService.SaveSettingOverridablePerStore(seoSettings, x => x.TwitterMetaTags, model.SeoSettings.TwitterMetaTags_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(seoSettings, x => x.OpenGraphMetaTags, model.SeoSettings.OpenGraphMetaTags_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(seoSettings, x => x.CustomHeadTags, model.SeoSettings.CustomHeadTags_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(seoSettings, x => x.HomeSchema, model.SeoSettings.CustomHeadTags_OverrideForStore, storeScope, false);
 
             //now clear settings cache
             _settingService.ClearCache();

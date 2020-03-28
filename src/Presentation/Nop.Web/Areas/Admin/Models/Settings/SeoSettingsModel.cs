@@ -64,6 +64,9 @@ namespace Nop.Web.Areas.Admin.Models.Settings
         public string CustomHeadTags { get; set; }
         public bool CustomHeadTags_OverrideForStore { get; set; }
 
+
+        [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.HomeSchema")]
+        public string HomeSchema { get; set; }
         #endregion
     }
 }

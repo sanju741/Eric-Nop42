@@ -435,7 +435,8 @@ namespace Nop.Web.Areas.Admin.Factories
 
                 TwitterMetaTags = seoSettings.TwitterMetaTags,
                 OpenGraphMetaTags = seoSettings.OpenGraphMetaTags,
-                CustomHeadTags = seoSettings.CustomHeadTags
+                CustomHeadTags = seoSettings.CustomHeadTags,
+                HomeSchema=seoSettings.HomeSchema
             };
 
             if (storeId <= 0)

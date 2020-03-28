@@ -82,5 +82,10 @@ namespace Nop.Core.Domain.Seo
         /// Custom tags in the <![CDATA[<head></head>]]> section
         /// </summary>
         public string CustomHeadTags { get; set; }
+
+        /// <summary>
+        /// Custom home page schema in the <![CDATA[<head></head>]]> section
+        /// </summary>
+        public string HomeSchema { get; set; }
     }
 }

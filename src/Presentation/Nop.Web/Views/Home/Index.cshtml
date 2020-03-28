@@ -3,6 +3,17 @@
 
     //page class
     Html.AppendPageCssClassParts("html-home-page");
+
+    //title
+    Html.AddTitleParts("Portable Wheelchair Ramps & Handicap Ramps for Home | Express Ramps");
+    //meta
+    Html.AddMetaDescriptionParts("We offer a variety of affordable handicap access solutions including ADA wheelchair ramps, portable ramps, OSHA steps and more. Visit Express Ramps today");
+}
+@if (ViewBag.HomePageSchema != null)
+{
+    <div class="home-schema" style="display:none">
+        @Html.Raw(ViewBag.HomePageSchema)
+    </div>
 }
 <div class="page home-page">
     <div class="page-body">
@@ -30,5 +41,11 @@
 
     .category-summary {
         padding: 8px 77px 10px;
+    }
+
+    @@media (min-width: 1001px) {
+        .theme-custom {
+            margin: 0;
+        }
     }
 </style>

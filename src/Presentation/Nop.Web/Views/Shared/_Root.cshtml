@@ -5,28 +5,70 @@
 @await Html.PartialAsync("_Notifications")
 @await Html.PartialAsync("_JavaScriptDisabledWarning")
 @await Html.PartialAsync("_OldInternetExplorerWarning")
-<div class="master-wrapper-page">
-    @await Component.InvokeAsync("AdminHeaderLinks")
-    @await Html.PartialAsync("_Header")
-    <script asp-location="Footer">
-        AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
-    </script>
-    <div class="header-menu">
-        @await Component.InvokeAsync("TopMenu")
-    </div>
-    <div class="master-wrapper-content">
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentBefore })
-
-        @if (IsSectionDefined("Breadcrumb"))
-        {
-            @RenderSection("Breadcrumb") 
-        }
-        <div class="master-column-wrapper">
-            @RenderBody()
+    <div class="master-wrapper-page">
+        @await Component.InvokeAsync("AdminHeaderLinks")
+        @await Html.PartialAsync("_Header")
+        <script asp-location="Footer">
+            AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
+        </script>
+        <div class="header-menu">
+            @await Component.InvokeAsync("TopMenu")
         </div>
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentAfter })
+
+        <div class="master-wrapper-content">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentBefore })
+
+            @if (IsSectionDefined("Breadcrumb"))
+            {
+                @RenderSection("Breadcrumb")
+            }
+            <div id="banner" style=" vertical-align:middle; text-align:center"></div>
+            <div class="master-column-wrapper">
+                @RenderBody()
+            </div>
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentAfter })
+        </div>
+        @await Component.InvokeAsync("Footer")
     </div>
-    @await Component.InvokeAsync("Footer")
-</div>
 @await Component.InvokeAsync("EuCookieLaw")
 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BodyEndHtmlTagBefore })
+
+<script>
+    var d = new Date();
+    var Today = d.getDate();
+    var Month = d.getMonth();
+    var src;
+    if (Month === 0 && (Today >= 1 && Today <= 1)) {
+        src = "https://expressramps.com/images/uploaded/banners/ramps-for-sale.png";
+    }
+    else if (Month === 4 && (Today >= 21 && Today <= 28)) {
+        src = "https://expressramps.com/images/uploaded/banners/memorial-day.png";
+    }
+    else if (Month === 5 && (Today >= 29 && Today <= 31)) {
+        src = "https://expressramps.com/images/uploaded/banners/july4th.png";
+    }
+    else if (Month === 6 && (Today >= 1 && Today <= 4)) {
+        src = "https://expressramps.com/images/uploaded/banners/july4th.png";
+    }
+    else if (Month === 9 && (Today >= 14 && Today <= 24)) {
+        src = "https://expressramps.com/images/uploaded/banners/fall-savings.png";
+    }
+    else if (Month === 9 && (Today >= 25 && Today <= 31)) {
+        src = "https://expressramps.com/images/uploaded/banners/halloween.png";
+    }
+    else if (Month === 10 && (Today >= 14 && Today <= 25)) {
+        src = "https://expressramps.com/images/uploaded/banners/thanksgiving.png";
+    }
+    else if (Month === 10 && (Today >= 26 && Today <= 30)) {
+        src = "https://expressramps.com/images/uploaded/banners/christmas-sale.png";
+    }
+    else if (Month === 11 && (Today >= 1 && Today <= 25)) {
+        src = "https://expressramps.com/images/uploaded/banners/christmas-sale.png";
+    }
+    else {
+        src = "https://expressramps.com/images/uploaded/banners/ramps-for-sale.png";
+    } let img = '<img src=' + src + ' alt="Wheelchair Ramps on Sale" class="imageSize" role="banner">';
+
+    document.getElementById('banner').insertAdjacentHTML('afterbegin', img);
+</script>
+
