@@ -160,7 +160,7 @@ namespace Nop.Web.Framework.UI
             var specificTitle = string.Join(_seoSettings.PageTitleSeparator, _titleParts.AsEnumerable().Reverse().ToArray());
             if (!string.IsNullOrEmpty(specificTitle))
             {
-                if (addDefaultTitle)
+                if (addDefaultTitle && specificTitle?.Trim()!= "Portable Wheelchair Ramps & Handicap Ramps for Home | Express Ramps")
                 {
                     //store name + page title
                     switch (_seoSettings.PageTitleSeoAdjustment)

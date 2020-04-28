@@ -1,13 +1,23 @@
-﻿@{
+﻿@using Nop.Core
+@inject Nop.Core.Domain.Seo.SeoSettings seoSettings
+@inject IWebHelper webHelper
+@{
     Layout = "_ColumnsOne";
 
     //page class
     Html.AppendPageCssClassParts("html-home-page");
 
     //title
-    Html.AddTitleParts("Portable Wheelchair Ramps & Handicap Ramps for Home | Express Ramps");
+    Html.AppendTitleParts("Portable Wheelchair Ramps & Handicap Ramps for Home | Express Ramps");
     //meta
     Html.AddMetaDescriptionParts("We offer a variety of affordable handicap access solutions including ADA wheelchair ramps, portable ramps, OSHA steps and more. Visit Express Ramps today");
+
+    //canonical URL
+    if (seoSettings.CanonicalUrlsEnabled)
+    {
+        var homeUrl = Url.RouteUrl("Homepage", new { }, webHelper.CurrentRequestProtocol).ToLowerInvariant();
+        Html.AddCanonicalUrlParts(homeUrl, seoSettings.QueryStringInCanonicalUrlsEnabled);
+    }
 }
 @if (ViewBag.HomePageSchema != null)
 {
@@ -15,24 +25,25 @@
         @Html.Raw(ViewBag.HomePageSchema)
     </div>
 }
-<div class="page home-page">
-    <div class="page-body">
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageTop })
-        @await Component.InvokeAsync("TopicBlock", new { systemName = "HomepageText" })
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
-        @await Component.InvokeAsync("HomepageCategories")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
-        @await Component.InvokeAsync("HomepageProducts")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
-        @await Component.InvokeAsync("HomepageBestSellers")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
-        @await Component.InvokeAsync("HomepageNews")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforePoll })
-        @await Component.InvokeAsync("HomepagePolls")
-        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
+<main>
+    <div class="page home-page">
+        <div class="page-body">
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageTop })
+            @await Component.InvokeAsync("TopicBlock", new { systemName = "HomepageText" })
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeCategories })
+            @await Component.InvokeAsync("HomepageCategories")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeProducts })
+            @await Component.InvokeAsync("HomepageProducts")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeBestSellers })
+            @await Component.InvokeAsync("HomepageBestSellers")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforeNews })
+            @await Component.InvokeAsync("HomepageNews")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBeforePoll })
+            @await Component.InvokeAsync("HomepagePolls")
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomepageBottom })
+        </div>
     </div>
-</div>
-
+</main>
 <style>
     .category-summary ul, ol {
         list-style: inherit !important;

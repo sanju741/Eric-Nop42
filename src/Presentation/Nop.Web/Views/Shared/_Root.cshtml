@@ -5,31 +5,32 @@
 @await Html.PartialAsync("_Notifications")
 @await Html.PartialAsync("_JavaScriptDisabledWarning")
 @await Html.PartialAsync("_OldInternetExplorerWarning")
-    <div class="master-wrapper-page">
-        @await Component.InvokeAsync("AdminHeaderLinks")
-        @await Html.PartialAsync("_Header")
-        <script asp-location="Footer">
-            AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
-        </script>
+<div class="master-wrapper-page">
+    @await Component.InvokeAsync("AdminHeaderLinks")
+    @await Html.PartialAsync("_Header")
+    <script asp-location="Footer">
+        AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
+    </script>
+    <nav>
         <div class="header-menu">
             @await Component.InvokeAsync("TopMenu")
         </div>
+    </nav>
+    <div class="master-wrapper-content">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentBefore })
 
-        <div class="master-wrapper-content">
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentBefore })
-
-            @if (IsSectionDefined("Breadcrumb"))
-            {
-                @RenderSection("Breadcrumb")
-            }
-            <div id="banner" style=" vertical-align:middle; text-align:center"></div>
-            <div class="master-column-wrapper">
-                @RenderBody()
-            </div>
-            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentAfter })
+        @if (IsSectionDefined("Breadcrumb"))
+        {
+            @RenderSection("Breadcrumb")
+        }
+        <div id="banner" style=" vertical-align:middle; text-align:center"></div>
+        <div class="master-column-wrapper">
+            @RenderBody()
         </div>
-        @await Component.InvokeAsync("Footer")
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ContentAfter })
     </div>
+    @await Component.InvokeAsync("Footer")
+</div>
 @await Component.InvokeAsync("EuCookieLaw")
 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BodyEndHtmlTagBefore })
 
@@ -67,7 +68,7 @@
     }
     else {
         src = "https://expressramps.com/images/uploaded/banners/ramps-for-sale.png";
-    } let img = '<img src=' + src + ' alt="Wheelchair Ramps on Sale" class="imageSize" role="banner">';
+    } let img = '<img style="max-width:100%; height:auto; border-width:0;" src=' + src + ' alt="Wheelchair Ramps on Sale" class="imageSize" role="banner">';
 
     document.getElementById('banner').insertAdjacentHTML('afterbegin', img);
 </script>

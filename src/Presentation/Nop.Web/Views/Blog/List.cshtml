@@ -41,6 +41,7 @@
         <div class="blog-posts">
             @foreach (var item in Model.BlogPosts)
             {
+            <article>
                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageBeforePost, additionalData = item })
                 <div class="post">
                     <div class="post-head">
@@ -80,6 +81,7 @@
                     </div>
                     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageInsidePost, additionalData = item })
                 </div>
+            </article>
                 @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.BlogListPageAfterPost, additionalData = item })
             }
         </div>
