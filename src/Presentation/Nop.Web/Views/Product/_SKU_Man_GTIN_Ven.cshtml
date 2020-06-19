@@ -5,8 +5,8 @@
     @if ((!string.IsNullOrWhiteSpace(Model.Sku) || Model.ManageInventoryMethod == ManageInventoryMethod.ManageStockByAttributes) && Model.ShowSku )
     {
         <div class="sku" @(string.IsNullOrWhiteSpace(Model.Sku) ? Html.Raw("style=\"display:none\"") : null)>
-            <span class="label">@T("Products.Sku"):</span>
-            <span class="value" itemprop="sku" id="sku-@Model.Id">@Model.Sku</span>
+            <span class="label"><strong> @T("Products.Sku"):</strong></span>
+            <span class="value" itemprop="sku" id="sku-@Model.Id"><strong> @Model.Sku</strong></span>
         </div>
     }
     @*Manufacturer part number*@

@@ -649,7 +649,7 @@ namespace Nop.Services.Messages
 
             //tokens
             var commonTokens = new List<Token>();
-            _messageTokenProvider.AddOrderTokens(commonTokens, order, languageId, vendor.Id, false);
+            _messageTokenProvider.AddOrderTokens(commonTokens, order, languageId, false, vendor.Id );
             _messageTokenProvider.AddCustomerTokens(commonTokens, order.Customer);
 
             return messageTemplates.Select(messageTemplate =>

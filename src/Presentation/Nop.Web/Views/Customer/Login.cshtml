@@ -5,6 +5,7 @@
 
 @inject IWebHelper webHelper
 @{
+    ViewBag.IsRobot = true;
     Layout = "_ColumnsOne";
 
     //title
@@ -18,12 +19,13 @@
     //canonical URL
     if (seoSettings.CanonicalUrlsEnabled)
     {
-        var loginUrl = Url.RouteUrl("Login", new {}, webHelper.CurrentRequestProtocol).ToLowerInvariant();
+        var loginUrl = Url.RouteUrl("Login", new { }, webHelper.CurrentRequestProtocol).ToLowerInvariant();
         Html.AddCanonicalUrlParts(loginUrl, seoSettings.QueryStringInCanonicalUrlsEnabled);
     }
 
     Html.AddMetaDescriptionParts("Login");
 }
+
 <div class="page login-page">
     <div class="page-title">
         <h1>@T("Account.Login.Welcome")</h1>

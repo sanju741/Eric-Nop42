@@ -25,6 +25,9 @@ namespace Nop.Services.Messages
         /// <param name="emailAccount">Email account</param>
         void AddStoreTokens(IList<Token> tokens, Store store, EmailAccount emailAccount);
 
+
+        void AddOrderTokens(IList<Token> tokens, Order order, int languageId, int vendorId = 0);
+
         /// <summary>
         /// Add order tokens
         /// </summary>
@@ -32,7 +35,7 @@ namespace Nop.Services.Messages
         /// <param name="order"></param>
         /// <param name="languageId">Language identifier</param>
         /// <param name="vendorId">Vendor identifier</param>
-        void AddOrderTokens(IList<Token> tokens, Order order, int languageId, int vendorId = 0, bool defaultVendorToken = true);
+        void AddOrderTokens(IList<Token> tokens, Order order, int languageId, bool defaultVendorToken, int vendorId = 0);
 
         /// <summary>
         /// Add refunded order tokens

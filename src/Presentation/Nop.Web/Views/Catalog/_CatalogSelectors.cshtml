@@ -1,35 +1,74 @@
-﻿@model CatalogPagingFilteringModel
-<div class="product-selectors">
-    @*view mode*@
-    @if (Model.AllowProductViewModeChanging)
-    {
-        <div class="product-viewmode">
-            <span>@T("Catalog.ViewMode")</span>
-            @if (Model.AvailableViewModes.Count > 1)
-            {
-                var gridMode = Model.AvailableViewModes[0];
-                var listMode = Model.AvailableViewModes[1];
+﻿<p><br /><br /></p>
+<div class="covid-videosection">
+    <p class="title"><strong>A message from our vet team</strong></p>
+    <div class="covid-video"><iframe width="400" height="250" src="https://www.youtube.com/embed/3B37ZUxUAMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe></div>
+    <div class="covid-videotext" style="margin: 0;">
+        <p>As partners in your pet's health, our goal is to ensure that pet parents are correctly informed. On Monday, our Chief Medical Officer, Dr. Oscar Chavez, along with others on our vet team, sat down to answer some of your pressing questions regarding COVID-19 and its possible impact on your pets.</p>
+    </div>
+</div>
+<div class="covid-videosection">
+    <p class="title"><strong>Updates</strong></p>
+    <p class="title"><strong>April 28, 2020</strong></p>
+    <p><span>Earlier this week, it was reported that a pet dog tested positive for the coronavirus that causes COVID-19 in people. At JustFoodForDogs we have been consistent with our promise to provide updates on this subject. This is that update.<o:p></o:p></span></p>
+    <ul>
+        <li><span>We continue to agree with the CDC and AVMA position is that there is no evidence of a human contracting the virus from pets. This is a human virus and pets are “dead-end” hosts to the virus.<o:p></o:p></span></li>
+        <li><span>A pet dog, a pug named Winston, tested positive for the virus that causes COVID-19. This is the first dog to test positive in the US. ‘<o:p></o:p></span></li>
+        <li><span>Winston showed mild symptoms, whereas in the past the few dogs that have tested positive have not. This is likely because Winston is a pug, a brachiocephalic breed, with a higher than typical susceptibility to respiratory disease in general.<o:p></o:p></span></li>
+        <li><span>This result came from a study conducted at Duke University in which the mother, father, and son in the household all tested positive for COVID-19.<o:p></o:p></span></li>
+        <li><span>The McLeans family has four pets: Winston, another dog, a cat, and a lizard. The family said the dogs and cat were tested and only Winston tested positive. Winston was mildly sick for a few days and is doing much better.<o:p></o:p></span></li>
+        <li><span>As mentioned in a previous update, studies like this are being conducted by various veterinary research teams nationwide. Other sporadic cases are likely as the pandemic develops.<o:p></o:p></span></li>
+    </ul>
+    <p><span>Our position at JustFoodForDogs remains that it is a very good sign that only a few cases of confirmed positives have occurred among pets, especially given multiple researchers and investigations. We recommend that you do not worry too much about contracting the virus from your pets as it is unlikely that they pose a threat to you. Practice social distancing, extend that distancing to your pets, and follow all of our other tips outlined in last week’s update to continue to ensure a happier and healthier life with your pets.<o:p></o:p></span></p>
+    <p class="title"></p>
+    <p class="title"><strong>April 23, 2020 </strong></p>
+    <div class="covid-video"><iframe width="400" height="250" src="https://www.youtube.com/embed/5eZY0dL08QA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe></div>
+    <div class="covid-videotext" style="margin: 0;">
+        <p><span>We promised to keep you as updates as possible on any possible impact from COVID-19 on pets. Over the past few days, there have been reports the first two pet cats in the US testing positive for the virus, as well as additional large cats at the Bronx Zoo. It is important to emphasize these occurrences are still very rare or under very specific conditions and there is no evidence that pets play a role in the pandemic. As we stated weeks ago, some animals seem to serve as rare “dead-end hosts” meaning the virus dies in them and they are not a source of infection to people. No pets have died as a result of the virus that causes COVID-19.</span></p>
+        <p></p>
+        <p></p>
+        <br /><br /><br /><br />
+        <p><span>Here’s what we still know:</span></p>
+        <ul>
+            <li>While still very rare, cats and ferrets seem to be more susceptible to the virus and dogs are less frequently affected. All seem to recover fully.</li>
+            <li><span>The virus that causes COVID-19 in people was found in 2 pet cats in New York, from separate households. Both cats are expected to recover fully.</span></li>
+            <li><span>In both cases the cats are thought to have contracted the virus from a previously infected person in the household, or the environment (one cat was an outdoor cat).</span></li>
+            <li><span>Two confirmed pets in the US, and in NYC (the epicenter of infection), out of potentially thousands after all this time when laboratories and veterinarians are looking for it - is a very good sign. There may be a few more sporadic cases as the pandemic continues but we should be seeing these low numbers as confirmation that pet infections are rare and that pets pose very little risk to us.</span></li>
+        </ul>
+        <p><span>Our message remains consistent with respect to coronavirus and pets:</span></p>
+        <ul>
+            <li><span>If you practice social distancing from others and include your pets in the same way, there is essentially zero chance they will bring this virus into your household. This is not a virus that prefers pets. This is a human virus.</span></li>
+            <li><span>If you are infected, limit your contact with people <em>and</em> pets.</span></li>
+            <li><span>If your pet is already exposed, keep it him isolated with you.</span></li>
+            <li><span>If your pet is sick, call your veterinarian to see if he actually needs to be seen at a clinic.</span></li>
+            <li><span>If the pet of someone with COVID-19 has to go to a veterinary clinic for medical care, let the clinic know about the household status and take precautions to reduce the risk of exposing other people or animals.</span></li>
+        </ul>
+        <p><span>Finally, there is also an update from The </span><a href="https://newsroom.wcs.org/News-Releases/articleType/ArticleView/articleId/14084/Update-Bronx-Zoo-Tigers-and-Lions-Recovering-from-COVID-19.aspx">Bronx Zoo released yesterday</a> about<span> additional large cats testing positive for the virus. It is believed they caught it from their already infected handler. If you’re interested, I recommend visiting monitoring their website, but the conditions are very different in a zoo and we should not expect the same ‘spread’ among pets. In fact, in one of the cases of the 2 pet cats, there is another cat in the household that is still infection-free.</span></p>
 
-                <a class="viewmode-icon grid @if(gridMode.Selected){<text>selected</text>}" href="@gridMode.Value" title="@gridMode.Text">@gridMode.Text</a>
-                <a class="viewmode-icon list @if (listMode.Selected){<text>selected</text>}" href="@listMode.Value" title="@listMode.Text">@listMode.Text</a>
-            }
+
+
+        <div class="covid-videosection">
+            <p class="title"><strong>April 6, 2020</strong></p>
+            <div class="covid-video">
+                <iframe width="575" height="300" src="https://www.youtube.com/embed/wjCQXb72udw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+            <div class="covid-videotext" style="margin: 0;">
+                <p>Yesterday, a tiger from the Bronx Zoo tested positive for the virus that causes COVID-19 in humans. Our Chief Medical Officer Dr. Oscar Chavez, provides an update on what this means along with tips on how to continue to keep your pets safe.</p>
+            </div>
         </div>
-    }
-    @*sorting*@
-    @if (Model.AllowProductSorting)
-    {
-        <div class="product-sorting">
-            <span>@T("Catalog.OrderBy")</span>
-            @Html.DropDownList("products-orderby", Model.AvailableSortOptions, new { onchange = "setLocation(this.value);", aria_label = T("Catalog.OrderBy.Label") })
+
+        <div class="covid-videosection">
+            <p class="title"><strong>March 30, 2020</strong></p>
+            <div class="covid-video">
+                <iframe width="575" height="300" src="https://www.youtube.com/embed/eGLdsHIqyy0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+            </div>
+            <div class="covid-videotext" style="margin: 0;">
+                <p>No evidence exists do date (per the AVMA and CDC) that pets are acting as a source of infection to humans. All evidence suggests that the virus that causes COVID-19 binds to human cell receptors best and performs best in human cells. Human to human transmission remains the only documented form of transmission among people in this pandemic. Pets are not considered to be a source of infection, and in the rare chance that the cases in pets, discussed below, are determined to be confirmed infections, then 1) these occurrences are exceedingly rare (2 cases out of hundreds of thousands) and 2) the pets serve as likely “dead end” hosts; meaning the virus dies in them, and they are not a source of infection for humans. <a href="https://www.avma.org/resources-tools/animal-health-and-welfare/covid-19" target="_blank">American Veterinary Medical Associate</a> </p>
+                <p>A cat in Belgium is reported to have tested positive for the virus, but investigations are still ongoing and there is still some doubt as to whether this is evidence of true infection. Unfortunately, some news outlets are reporting on this pre-maturely and causing possible confusion. <a href="https://promedmail.org/promed-post/?id=20200326.7146438&amp;fbclid=IwAR1YQlqjvuwQFF2BtlLsiR0dLmGBfYXowzB80KD8nJVVrMOzn5axXT299n0" target="_blank">ProMed International Society for Infection Disease</a> </p>
+                <p>A prominent veterinary laboratory, IDEXX, along with dozens of veterinarians and epidemiologists are monitoring for evidence of COVID19 in pets and have not been able to find it in over 4000 test cases, including samples South Korea and the US. <a href="https://www.idexx.com/en/veterinary/reference-laboratories/idexx-sars-cov-2-covid-19-realpcr-test/" target="_blank">IDEXX</a></p>
+                <p>There is no need to fear your pets as a possible source of infection at this time. In fact, pets are proving to be a source of comfort, companionship, loyalty and love during an otherwise uncertain time as pet adoptions are generally up nationwide. It is important that we continue to provide you with accurate, truthful information to avoid misunderstandings and the unnecessary abandonment of pets. <a href="https://www.npr.org/2020/03/29/822992811/animal-shelters-urge-humans-confined-to-home-by-coronavirus-outbreak-to-adopt" target="_blank">NPR</a></p>
+
+            </div>
         </div>
-    }
-    @*page size*@
-    @if (Model.AllowCustomersToSelectPageSize)
-    {
-        <div class="product-page-size">
-            <span>@T("Catalog.PageSize")</span>
-            @Html.DropDownList("products-pagesize", Model.PageSizeOptions, new { onchange = "setLocation(this.value);", aria_label = T("Catalog.PageSize.Label") })
-            <span>@T("Catalog.PageSize.PerPage")</span>
-        </div>
-    }
+
+    </div>
 </div>

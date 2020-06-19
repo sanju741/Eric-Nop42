@@ -930,6 +930,12 @@ namespace Nop.Services.Messages
             _eventPublisher.EntityTokensAdded(store, tokens);
         }
 
+
+        public virtual void AddOrderTokens(IList<Token> tokens, Order order, int languageId, int vendorId = 0)
+        {
+            AddOrderTokens(tokens, order, languageId, true, vendorId);
+        }
+
         /// <summary>
         /// Add order tokens
         /// </summary>
@@ -937,7 +943,7 @@ namespace Nop.Services.Messages
         /// <param name="order"></param>
         /// <param name="languageId">Language identifier</param>
         /// <param name="vendorId">Vendor identifier</param>
-        public virtual void AddOrderTokens(IList<Token> tokens, Order order, int languageId, int vendorId = 0, bool defaultVendorToken = true)
+        public virtual void AddOrderTokens(IList<Token> tokens, Order order, int languageId, bool defaultVendorToken, int vendorId = 0)
         {
             //lambda expression for choosing correct order address
             Address orderAddress(Order o) => o.PickupInStore ? o.PickupAddress : o.ShippingAddress;

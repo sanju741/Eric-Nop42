@@ -2,6 +2,8 @@
 @inject Nop.Core.Domain.Seo.SeoSettings seoSettings
 @inject Nop.Core.IWebHelper webHelper
 @{
+    ViewBag.IsRobot = true;
+
     Layout = "_ColumnsOne";
 
     //title
@@ -9,14 +11,17 @@
     //page class
     Html.AppendPageCssClassParts("html-registration-page");
 
+    Html.AddMetaKeywordParts("robots");
+
     //canonical URL
     if (seoSettings.CanonicalUrlsEnabled)
     {
-        var loginUrl = Url.RouteUrl("Register", new {}, webHelper.CurrentRequestProtocol).ToLowerInvariant();
+        var loginUrl = Url.RouteUrl("Register", new { }, webHelper.CurrentRequestProtocol).ToLowerInvariant();
         Html.AddCanonicalUrlParts(loginUrl, seoSettings.QueryStringInCanonicalUrlsEnabled);
     }
     Html.AddMetaDescriptionParts("Register");
 }
+
 
 <div class="page registration-page">
     <div class="page-title">
@@ -141,11 +146,11 @@
                 </div>
             }
             @if (Model.StreetAddressEnabled ||
-            Model.StreetAddress2Enabled ||
-            Model.ZipPostalCodeEnabled ||
-            Model.CityEnabled ||
-            Model.CountyEnabled ||
-            Model.CountryEnabled)
+         Model.StreetAddress2Enabled ||
+         Model.ZipPostalCodeEnabled ||
+         Model.CityEnabled ||
+         Model.CountyEnabled ||
+         Model.CountryEnabled)
             {
                 <div class="fieldset">
                     <div class="title">
